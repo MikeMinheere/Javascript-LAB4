@@ -24,22 +24,19 @@ for(i=1; i <=numOfBtn; i++){
 
 var buttons = document.getElementsByTagName("button");
 var buttonsCount = buttons.length;
+var colors = ['green', 'yellow','blue', 'orange', 'cyan', 'black']
+
 for (var i = 0; i <= buttonsCount; i += 1) {
     buttons[i].onclick = function(e) {
-        if(this.style.backgroundColor == 'green'){
-            this.style.backgroundColor = 'red';
+        for(x = 0; x < colors.length; x++){
+            if(this.style.backgroundColor == `${colors[x]}`){
+                this.style.backgroundColor = `${colors[x+1]}`;
+                break
+            }
+            else if(this.style.backgroundColor == `${colors[colors.length - 1]}`){
+                this.remove();
+            }
         }
-        else if(this.style.backgroundColor == 'red'){
-            this.style.backgroundColor = 'purple';
-        }
-        else if(this.style.backgroundColor == 'purple'){
-            this.style.backgroundColor = 'blue';
-        }
-        else if(this.style.backgroundColor == 'blue'){
-            this.style.backgroundColor = 'black';
-        }
-        else if(this.style.backgroundColor == 'black'){
-            this.remove();
-        }
+
     }
 }
